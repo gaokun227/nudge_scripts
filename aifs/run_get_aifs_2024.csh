@@ -16,8 +16,8 @@
 
 set echo
 
-#set dst_base = '/gpfs/f5/gfdl_w/scratch/Kun.Gao/AIFS_nudge/aifs/raw/'
-set dst_base = '/gpfs/f6/bil-coastal-gfdl/scratch/Kun.Gao/aifs/raw/'
+set dst_base = '/gpfs/f5/gfdl_w/scratch/Kun.Gao/DATA_for_nudge/aifs/raw/'
+#set dst_base = '/gpfs/f6/bil-coastal-gfdl/scratch/Kun.Gao/aifs/raw/'
 
 mkdir -p $dst_base/$date/
 
@@ -31,7 +31,8 @@ foreach hour ($hour_list)
   set filename = ${date}'0000-'$hour'h-oper-fc.grib2'
   #set filename_nc = ${date}'0000-'$hour'h-oper-fc.nc'
 
-  set src_file = 'https://storage.googleapis.com/ecmwf-open-data/'${init_date}'/'${init_hh}'z/aifs-single/0p25/oper/'${filename}
+  #set src_file = 'https://storage.googleapis.com/ecmwf-open-data/'${init_date}'/'${init_hh}'z/aifs-single/0p25/oper/'${filename}
+  set src_file = 'https://storage.googleapis.com/ecmwf-open-data/'${init_date}'/'${init_hh}'z/aifs/0p25/oper/'${filename}
   set dst_file = $dst_base/$date/$filename 
 
   if ( ! -f $dst_file) then

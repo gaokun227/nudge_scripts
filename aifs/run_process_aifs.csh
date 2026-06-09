@@ -16,10 +16,13 @@ set echo
 set init_date = `echo $date | cut -c1-8`  # YYYYMMDD
 set init_hh = `echo $date | cut -c9-10`   # HH
 
-set src_dir = '/gpfs/f5/gfdl_w/scratch/Kun.Gao/AIFS_nudge/aifs/raw/'$date
-set dst_dir = '/gpfs/f5/gfdl_w/scratch/Kun.Gao/AIFS_nudge/aifs/processed/'${init_date}.${init_hh}'Z/'
+#set base = /gpfs/f6/bil-coastal-gfdl/scratch/Kun.Gao/aifs/
+set base = /gpfs/f5/gfdl_w/scratch/Kun.Gao/DATA_for_nudge/aifs/
 
-mkdir $dst_dir
+set src_dir = $base'/raw/'$date
+set dst_dir = $base'/processed/'${init_date}.${init_hh}'Z/'
+
+mkdir -p $dst_dir
 cd $dst_dir
 
 set hour_list = ( `seq 0 6 126` )
